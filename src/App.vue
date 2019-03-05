@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <Header />
+
     <nav>
       <router-link to="/">List</router-link>
       <router-link to="/about">About us</router-link>
@@ -12,11 +14,13 @@
 </template>
 
 <script>
+import Header from "./components/Header"
 import Footer from "./components/Footer"
 
 export default {
   name: "app",
   components: {
+    Header,
     Footer
   }
 }
@@ -32,7 +36,7 @@ export default {
 /* color: #CCE6F4 */
 
 body {
-  /* background: #175676; */
+  background: #CCE6F4 ;
   margin: 0;
   height: 100%;
 }
