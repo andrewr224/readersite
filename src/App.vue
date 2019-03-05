@@ -6,12 +6,19 @@
     </nav>
 
     <router-view />
+
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "./components/Footer"
+
 export default {
-  name: "app"
+  name: "app",
+  components: {
+    Footer
+  }
 }
 </script>
 
@@ -45,7 +52,7 @@ a {
 }
 
 nav {
-  padding: 20px 20px 20px 0;
+  padding: 20px 0 20px 15px;
 }
 
 nav a {
