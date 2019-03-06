@@ -1,5 +1,9 @@
 <template>
 <div class="books">
+  <h3 v-if="books.length === 0">Your book list is yet empty</h3>
+
+  <AddBook v-on:add-book="addBook" />
+
   <ul>
     <transition-group name="list" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
       <li :key="index" v-for="(book, index) in books">
@@ -11,11 +15,13 @@
 </template>
 
 <script>
+import AddBook from "./AddBook"
 import Book from "./Book"
 
 export default {
   name: "Books",
   components: {
+    AddBook,
     Book
   },
   data() {
@@ -30,6 +36,11 @@ export default {
         { "title": "The Republic", "author": "Plato", "pages": 182,"read": false }
       ]
     }
+  },
+  methods: {
+    addBook(newBook) {
+      this.books.push(newBook)
+    }
   }
 }
 </script>
@@ -38,8 +49,7 @@ export default {
 <style scoped>
 .books {
   width: 66%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 66px auto 0 auto;
 }
 
 ul {

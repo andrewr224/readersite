@@ -2,7 +2,7 @@
 <div class="book">
   <h3>{{ book.title }}</h3>
   <p><small> by </small>{{ book.author }}</p>
-  <p>{{ book.pages }} pages</p>
+  <p v-if="book.pages">{{ book.pages }} pages</p>
   <p>{{ book.read ? "Read" : "Unread" }}</p>
 </div>
 </template>
