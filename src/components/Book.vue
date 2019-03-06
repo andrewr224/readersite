@@ -1,0 +1,30 @@
+<template>
+<div class="book">
+  <h3>{{ book.title }}</h3>
+  <p><small> by </small>{{ book.author }}</p>
+  <p>{{ book.pages }} pages</p>
+  <p>{{ book.read ? "Read" : "Unread" }}</p>
+</div>
+</template>
+
+<script>
+export default {
+  name: "Book",
+  props: ["book", "index"]
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.book {
+  background-color: #E0EDF4;
+  box-shadow: 0px 0px 40px #4BA3C3;
+  padding: 4px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+h3 {
+  color: #BA324F;
+}
+</style>

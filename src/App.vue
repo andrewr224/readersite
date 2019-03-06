@@ -3,7 +3,7 @@
     <Header />
 
     <nav>
-      <router-link to="/">List</router-link>
+      <router-link to="/">Books</router-link>
       <router-link to="/about">About us</router-link>
     </nav>
 
@@ -28,6 +28,8 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://cdn.jsdelivr.net/npm/animate.css@3.5.1");
 
 /* color: #D62839 */
 /* color: #BA324F */
@@ -39,6 +41,7 @@ body {
   background: #CCE6F4 ;
   margin: 0;
   height: 100%;
+  padding-bottom: 66px;
 }
 
 a {
