@@ -4,7 +4,7 @@
 
   <NewBookModal v-on:add-book="addBook" />
 
-  <button v-on:click="showBookModal">Add Book</button>
+  <button v-on:click="showBookModal" class="add-book">Add Book</button>
 
   <ul>
     <transition-group name="list" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
@@ -69,5 +69,9 @@ ul {
 p {
   text-align: center;
   color: gray;
+}
+
+.add-book {
+  margin-bottom: 18px;
 }
 </style>
