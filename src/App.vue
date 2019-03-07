@@ -71,4 +71,12 @@ nav a {
   margin-right: 15px;
   font-size: 25px;
 }
+
+button {
+  padding: 15px;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #D62839;
+  border: none;
+}
 </style>

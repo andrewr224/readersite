@@ -18,7 +18,6 @@ export default {
 <style scoped>
 .book {
   background-color: #E0EDF4;
-  box-shadow: 0px 0px 40px #4BA3C3;
   padding: 4px;
   margin-top: 14px;
   margin-bottom: 14px;

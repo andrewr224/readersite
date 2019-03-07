@@ -1,35 +1,36 @@
 <template>
-<div class="add-book">
+<div class="book-form">
   <form @submit.prevent="addBook">
+    <p class="alert" v-if="errors.has('title')">
+      {{ errors.first("title") }}
+    </p>
+
     <div class="form-input">
       <label for="title">Book Title:</label>
       <input name="title" v-model="title" v-validate="'required|min:5'" type="text" />
-
-      <p class="alert" v-if="errors.has('title')">
-        {{ errors.first("title") }}
-      </p>
     </div>
 
+
+    <p class="alert" v-if="errors.has('author')">
+      {{ errors.first("author") }}
+    </p>
     <div class="form-input">
       <label for="author">Author:</label>
       <input name="author" v-model="author" v-validate="'required|min:5'" type="text" />
-
-      <p class="alert" v-if="errors.has('author')">
-        {{ errors.first("author") }}
-      </p>
     </div>
 
+
+    <p class="alert" v-if="errors.has('pages')">
+      {{ errors.first("pages") }}
+    </p>
     <div class="form-input">
       <label for="pages">Number of Pages:</label>
       <input name="pages" v-model="pages" v-validate="'min_value:1'" type="number" />
-
-      <p class="alert" v-if="errors.has('pages')">
-        {{ errors.first("pages") }}
-      </p>
     </div>
 
-    <div class="form-input">
+    <div class="form-input button-group">
       <button>Add Book</button>
+      <button @click.prevent="cancel">Close</button>
     </div>
   </form>
 </div>
@@ -37,7 +38,7 @@
 
 <script>
 export default {
-  name: "AddBook",
+  name: "BookForm",
   data() {
     return {
       title: "",
@@ -61,6 +62,9 @@ export default {
       this.title = ""
       this.author = ""
       this.pages = ""
+    },
+    cancel() {
+      this.$emit("cancel")
     }
   }
 }
@@ -68,7 +72,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.add-book {
+.book-form {
+  padding: 34px;
 }
 
 .form-input {
@@ -77,20 +82,17 @@ export default {
   margin-bottom: 30px;
 }
 
+.button-group {
+  margin-bottom: 0;
+}
+
 label {
   font-size: 18px;
 }
 
 input {
-  border: 0;
+  border: 1px solid #CCE6F4;
   padding: 15px;
   font-size: 1.3em;
-}
-
-button {
-  padding: 15px;
-  color: #FFF;
-  background-color: #D62839;
-  border: none;
 }
 </style>

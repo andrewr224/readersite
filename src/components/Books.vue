@@ -2,7 +2,9 @@
 <div class="books">
   <h3 v-if="books.length === 0">Your book list is yet empty</h3>
 
-  <AddBook v-on:add-book="addBook" />
+  <NewBookModal v-on:add-book="addBook" />
+
+  <button v-on:click="showBookModal">Add Book</button>
 
   <ul>
     <transition-group name="list" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
@@ -15,13 +17,13 @@
 </template>
 
 <script>
-import AddBook from "./AddBook"
+import NewBookModal from "./NewBookModal"
 import Book from "./Book"
 
 export default {
   name: "Books",
   components: {
-    AddBook,
+    NewBookModal,
     Book
   },
   data() {
@@ -40,6 +42,9 @@ export default {
   methods: {
     addBook(newBook) {
       this.books.push(newBook)
+    },
+    showBookModal() {
+      this.$modal.show("new-book-modal")
     }
   }
 }
