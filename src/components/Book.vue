@@ -3,14 +3,19 @@
   <h3>{{ book.title }}</h3>
   <p><small> by </small>{{ book.author }}</p>
   <p v-if="book.pages">{{ book.pages }} pages</p>
-  <p>{{ book.read ? "Read" : "Unread" }}</p>
+  <p v-on:click="toggleRead(index)" class="read-status">{{ book.read ? "Read" : "Unread" }}</p>
 </div>
 </template>
 
 <script>
 export default {
   name: "Book",
-  props: ["book", "index"]
+  props: ["book", "index"],
+  methods: {
+    toggleRead(index) {
+      this.$emit("toggle-read", index)
+    }
+  }
 }
 </script>
 
@@ -24,6 +29,12 @@ export default {
 }
 
 h3 {
+  color: #BA324F;
+}
+p.read-status {
+  cursor: pointer;
+}
+p.read-status:hover {
   color: #BA324F;
 }
 </style>

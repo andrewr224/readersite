@@ -78,5 +78,6 @@ button {
   color: #FFF;
   background-color: #D62839;
   border: none;
+  cursor: pointer;
 }
 </style>

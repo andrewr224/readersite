@@ -9,7 +9,7 @@
   <ul>
     <transition-group name="list" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
       <li :key="index" v-for="(book, index) in books">
-        <Book :book="book" :index="index" />
+        <Book :book="book" :index="index" v-on:toggle-read="toggleRead" />
       </li>
     </transition-group>
   </ul>
@@ -45,6 +45,9 @@ export default {
     },
     showBookModal() {
       this.$modal.show("new-book-modal")
+    },
+    toggleRead(index) {
+      this.books[index].read = !this.books[index].read
     }
   }
 }
