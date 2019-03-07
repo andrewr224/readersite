@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force",
+    "initial-deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "vee-validate": "^2.1.7",
