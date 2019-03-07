@@ -30,7 +30,7 @@
 
     <div class="form-input button-group">
       <button>Add Book</button>
-      <button @click.prevent="cancel">Close</button>
+      <button v-on:click.prevent="cancel">Close</button>
     </div>
   </form>
 </div>

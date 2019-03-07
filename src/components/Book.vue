@@ -1,5 +1,6 @@
 <template>
 <div class="book">
+  <button class="delete" v-on:click.prevent="remove(index)">x</button>
   <h3>{{ book.title }}</h3>
   <p><small> by </small>{{ book.author }}</p>
   <p v-if="book.pages">{{ book.pages }} pages</p>
@@ -14,6 +15,9 @@ export default {
   methods: {
     toggleRead(index) {
       this.$emit("toggle-read", index)
+    },
+    remove(index) {
+      this.$emit("remove-book", index)
     }
   }
 }
@@ -31,10 +35,25 @@ export default {
 h3 {
   color: #BA324F;
 }
+
 p.read-status {
   cursor: pointer;
 }
+
 p.read-status:hover {
   color: #BA324F;
+}
+
+.delete {
+  font-size: 22px;
+  float: right;
+  cursor: pointer;
+  padding: 3px;
+  width: 35px;
+  height: 35px;
+}
+
+.delete:hover {
+  background-color: #BA324F;
 }
 </style>

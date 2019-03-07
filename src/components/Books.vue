@@ -9,7 +9,7 @@
   <ul>
     <transition-group name="list" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
       <li :key="index" v-for="(book, index) in books">
-        <Book :book="book" :index="index" v-on:toggle-read="toggleRead" />
+        <Book :book="book" :index="index" v-on:toggle-read="toggleRead" v-on:remove-book="removeBook" />
       </li>
     </transition-group>
   </ul>
@@ -30,12 +30,9 @@ export default {
     return {
       books: [
         { "title": "Well Grounded Rubyist", "author": "David A. Black", "pages": 575, "read": false },
-        { "title": "Eloquent Ruby", "author": "Russ Olsen", "pages": 447,"read": false },
         { "title": "Metaprogramming Ruby: Program Like the Ruby Pros", "author": "Paolo Perrotta", "pages": 261,"read": false },
-        { "title": "Effective Testing with RSpec 3: Build Ruby Apps with Confidence", "author": "Ian Dees and Myron Marston", "pages": 356,"read": false },
         { "title": "The Hobbit", "author": "J. R. R. Tolkien", "pages": 300,"read": true },
-        { "title": "Candide", "author": "Voltaire", "pages": 112,"read": true },
-        { "title": "The Republic", "author": "Plato", "pages": 182,"read": false }
+        { "title": "Candide", "author": "Voltaire", "pages": 112,"read": true }
       ]
     }
   },
@@ -48,6 +45,9 @@ export default {
     },
     toggleRead(index) {
       this.books[index].read = !this.books[index].read
+    },
+    removeBook(index) {
+      this.books.splice(index, 1)
     }
   }
 }
